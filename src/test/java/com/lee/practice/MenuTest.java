@@ -9,4 +9,14 @@ public class MenuTest {
         CoffeeMenu coffeMenu = new CoffeeMenu();
         coffeMenu.showMenu();
     }
+
+    @Test
+    public void coffeeArr() throws Exception {
+
+    }
+
+    @Test
+    public void amountArr()  throws Exception {
+
+    }
 }
