@@ -8,15 +8,15 @@ public class VendingMachine {
         this.money = money;
     }
 
+    public void setBalance(int money) {
+        this.money = money;
+    }
+
     public int getBalance() {
         return this.money;
     }
 
-    public void outMoney(int money) {
-        this.money -= money;
-    }
-
     public void selectDrink(Drink drink) {
-
+        money -= drink.getPrice();
     }
 }
