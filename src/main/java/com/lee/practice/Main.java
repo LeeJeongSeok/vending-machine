@@ -14,10 +14,6 @@ public class Main {
         System.out.println("현재 금액 : " + vendingMachine.getBalance());
 
         coffeeMenu.showMenu2();
-        scanner.nextLine();
-
-        Drink drink = new Drink(scanner.nextLine());
-        System.out.println("선택한 메뉴 : " + drink.getDrink());
 
     }
 }
