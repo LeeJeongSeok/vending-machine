@@ -9,4 +9,9 @@ public class CoffeeMenu {
         System.out.println("1. 아메리카노, 2. 카페 라때, 3. 카라멜 마끼야또");
         System.out.println("===============================================================");
     }
+
+
+    public boolean searchMenu(String coffee) {
+        return true;
+    }
 }
