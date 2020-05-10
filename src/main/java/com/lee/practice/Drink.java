@@ -3,14 +3,19 @@ package com.lee.practice;
 public class Drink {
 
     private String drink;
-    private int amount;
+    private int price;
 
-    public Drink(String drink, int amount) {
+    public Drink(String drink, int price) {
         this.drink = drink;
-        this.amount = amount;
+        this.price = price;
+    }
+
+    public String getDrink() {
+        return drink;
     }
 
     public int getPrice() {
-        return this.amount;
+        return price;
     }
+
 }
