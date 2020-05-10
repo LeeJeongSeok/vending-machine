@@ -2,9 +2,9 @@ package com.lee.practice;
 
 public class VendingMachine {
 
-    int money;
+    private int money;
 
-    public void putMoney(int money) {
+    public VendingMachine(int money) {
         this.money = money;
     }
 

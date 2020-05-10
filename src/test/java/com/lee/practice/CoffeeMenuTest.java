@@ -10,9 +10,11 @@ public class CoffeeMenuTest {
     int[] price = {2000, 2500, 3000};
 
     @Test
-    public void 사용자가_주문한_음료가_있는가() throws Exception{
-        CoffeeMenu coffeeMenu = new CoffeeMenu();
-        assertThat(true).isEqualTo(coffeeMenu.searchMenu(coffee[0]));
+    public void 음료_주문() throws Exception{
+
+        Drink drink = new Drink("아메리카노", 2000);
+
+        assertThat(coffee[0]).isEqualTo((drink.getDrink()));
     }
 
     @Test
