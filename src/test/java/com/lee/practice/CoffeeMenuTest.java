@@ -33,7 +33,8 @@ public class CoffeeMenuTest {
         coffeeMenu.put("카라멜 마끼야또", 3000);
 
         //when
-        Drink drink = new Drink("아메리카노", 2000);
+        Drink drink = new Drink("아메리카노");
+        drink.setPrice(coffeeMenu.get("아메리카노"));
 
         //then
         assertThat(coffeeMenu.get(drink.getDrink())).isEqualTo(drink.getPrice());

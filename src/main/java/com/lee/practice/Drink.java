@@ -22,6 +22,10 @@ public class Drink {
         return price;
     }
 
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
     public String toString() {
         return "현재 주문한 음료는 " + drink + "이며, 가격은 " + price + "입니다.";
     }
