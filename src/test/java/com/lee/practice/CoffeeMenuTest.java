@@ -15,7 +15,6 @@ public class CoffeeMenuTest {
     @Before
     public void init() {
         coffeeMenu = new HashMap<>();
-
     }
 
     @Test
