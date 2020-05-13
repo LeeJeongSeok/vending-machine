@@ -1,33 +1,44 @@
 package com.lee.practice;
 
+import org.junit.Before;
 import org.junit.Test;
-import static org.assertj.core.api.Assertions.*;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
 
 public class VendingMachineTest {
 
-    // 잔액확인
     @Test
-    public void testGetBalance() throws Exception{
+    public void VendingMachine_생성후_현재_투입된_금액_표시() {
         VendingMachine machine = new VendingMachine(10000);
-        assertThat(10000).isEqualTo(machine.getBalance());
+        assertThat(10000).isEqualTo(machine.currentMoney());
     }
 
-    //거스름만 반환
     @Test
-    public void 음료_추가_선택_후_거스름돈_반환() throws Exception {
+    public void VendingMachine에_남아있는_잔돈반환() {
+
+        //given
+        VendingMachine machine = new VendingMachine(5800);
+
+        //when
+        machine.returnChange();
+
+        //that
+        assertThat(machine.returnChange()).isEqualTo(machine.currentMoney());
+    }
+
+    @Test
+    public void VendingMachine에서_음료값을_지불() {
+
+        //given
         VendingMachine machine = new VendingMachine(10000);
 
-        machine.selectDrink(new Drink("Ice Latte", 2000));
-        machine.selectDrink(new Drink("Ice Latte", 2000));
+        //when
+        int returnChange = machine.getOrderDrink(5000);
 
-        machine.setBalance(6000);
-
-        assertThat(6000).isEqualTo(machine.getBalance());
-
-        machine.selectDrink(new Drink("Ice Latte", 2000));
-
-        assertThat(4000).isEqualTo(machine.getBalance());
-
+        //that
+        assertThat(returnChange).isEqualTo(machine.currentMoney());
     }
+
 
 }

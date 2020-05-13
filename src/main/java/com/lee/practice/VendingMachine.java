@@ -8,15 +8,19 @@ public class VendingMachine {
         this.money = money;
     }
 
-    public void setBalance(int money) {
-        this.money = money;
+    public int currentMoney() {
+        System.out.println("현재 투입된 금액은 : " + money);
+        return money;
     }
 
-    public int getBalance() {
-        return this.money;
+    public int returnChange() {
+        this.money = 0;
+        return money;
     }
 
-    public void selectDrink(Drink drink) {
-        money -= drink.getPrice();
+    public int getOrderDrink(int amount) {
+        money -= amount;
+        return money;
     }
+
 }
