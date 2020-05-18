@@ -33,22 +33,6 @@ public class VendingMachineTest {
     }
 
     @Test
-    public void VendingMachine_생성후_현재_투입된_금액_표시() {
-        assertThat(10000).isEqualTo(machine.currentMoney());
-    }
-
-    @Test
-    public void VendingMachine에_남아있는_잔돈반환() {
-        assertThat(machine.returnChange()).isEqualTo(machine.currentMoney());
-    }
-
-    @Test
-    public void VendingMachine에서_음료값을_지불() {
-
-        assertThat(machine.getOrderDrink(menuList.get("아메리카노"))).isEqualTo(machine.currentMoney());
-    }
-
-    @Test
     public void 메뉴판_출력() {
 
         System.out.println("VendingMachine V1 입니다.");
@@ -58,13 +42,37 @@ public class VendingMachineTest {
         System.out.println("돌체라때 : " + menuList.get("돌체라때") + "원");
     }
 
+    @Test
+    public void VendingMachine_생성후_현재_투입된_금액_표시() {
+        assertThat(10000).isEqualTo(machine.currentMoney());
+    }
 
     @Test
     public void 음료_선택() {
 
-        String coffee = "아메리카노";
+        String americano = "아메리카노";
+        String latte = "카페라때";
+        String dolce = "돌체라때";
 
-        assertThat(menuList.get("카페라때")).isEqualTo(machine.chooseDrink(coffee));
+        assertThat(menuList.get("아메리카노")).isEqualTo(machine.chooseDrink(menuList.get(americano)));
+        assertThat(menuList.get("카페라때")).isEqualTo(machine.chooseDrink(menuList.get(latte)));
+        assertThat(menuList.get("돌체라때")).isEqualTo(machine.chooseDrink(menuList.get(dolce)));
+
+
     }
 
+    @Test
+    public void VendingMachine에서_음료값을_지불() {
+
+
+        assertThat(machine.getOrderDrink(menuList.get("아메리카노"))).isEqualTo(machine.currentMoney());
+        assertThat(machine.getOrderDrink(menuList.get("카페라때"))).isEqualTo(machine.currentMoney());
+        assertThat(machine.getOrderDrink(menuList.get("돌체라때"))).isEqualTo(machine.currentMoney());
+
+    }
+
+    @Test
+    public void VendingMachine에_남아있는_잔돈반환() {
+        assertThat(machine.returnChange()).isEqualTo(machine.currentMoney());
+    }
 }
