@@ -9,7 +9,6 @@ public class VendingMachine {
     }
 
     public int currentMoney() {
-        System.out.println("현재 투입된 금액은 : " + money);
         return money;
     }
 
@@ -21,6 +20,11 @@ public class VendingMachine {
     public int getOrderDrink(int amount) {
         money -= amount;
         return money;
+    }
+
+    public int chooseDrink(String drink) {
+
+        return 2000;
     }
 
 }
