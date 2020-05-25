@@ -16,7 +16,7 @@ import static org.junit.Assert.assertNull;
 public class VendingMachineTest {
 
     @Test
-    public void nothing() {
-
+    public void canCreateVendingMachine() {
+        VendingMachine machine = new VendingMachine();
     }
 }
