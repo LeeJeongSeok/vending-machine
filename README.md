@@ -28,4 +28,3 @@
 ### 2.2 make it pass
 
 src/main/java 밑에 VendingMachine 클래스를 생성
-
