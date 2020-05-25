@@ -19,7 +19,7 @@
 ### 2.1 add failing test
 
 ```java
-		@Test
+@Test
     public void canCreateVendingMachine() {
         VendingMachine machine = new VendingMachine();
     }
