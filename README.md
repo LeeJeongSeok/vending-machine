@@ -12,3 +12,20 @@
 
 
 
+## 2. canCreateVendingMachine
+
+가장 쉽고(간단하고) 흥미로운 테스트부터 작성하도록 한다.
+
+### 2.1 add failing test
+
+```java
+		@Test
+    public void canCreateVendingMachine() {
+        VendingMachine machine = new VendingMachine();
+    }
+```
+
+### 2.2 make it pass
+
+src/main/java 밑에 VendingMachine 클래스를 생성
+
