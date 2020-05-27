@@ -29,3 +29,10 @@
 
 src/main/java 밑에 VendingMachine 클래스를 생성
 
+
+
+## 3. End Vending Machine 
+
+return 메소드를 호출하면 잔돈을 반환하면서 Vending Machnine이 종료된다.
+
+### 3.1 add failing test
