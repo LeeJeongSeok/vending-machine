@@ -37,17 +37,17 @@ public class VendingMachineTest {
     public void 거스름돈_반환() {
 
         //given
+        int change = 300;
 
         //when
+        User user = new User();
+        user.addChange(change);
 
         //then
+        assertThat(user.getMoney()).isEqualTo(300);
 
-
-        assertThat(machine.returnChange(0)).isEqualTo(0);
-        assertThat(machine.returnChange(1)).isEqualTo(1);
-        assertThat(machine.returnChange(300)).isEqualTo(300);
-        assertThat(machine.returnChange(3005)).isEqualTo(3005);
     }
+
 
     @Ignore
     @Test

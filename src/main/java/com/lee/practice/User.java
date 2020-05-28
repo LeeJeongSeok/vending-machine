@@ -15,4 +15,12 @@ public class User {
     public void orderToMachine(int number) {
         machine.receiveFromUser(number);
     }
+
+    public void addChange(int change) {
+        money += change;
+    }
+
+    public int getMoney() {
+        return money;
+    }
 }
