@@ -31,8 +31,17 @@ src/main/java 밑에 VendingMachine 클래스를 생성
 
 
 
-## 3. End Vending Machine 
+## 3. Terminate VendingMachine
 
-return 메소드를 호출하면 잔돈을 반환하면서 Vending Machnine이 종료된다.
+terminateMachine(String text) 호출하면 Vending Machine이 종료될 수 있도록 한다.
 
 ### 3.1 add failing test
+
+```java
+ @Test
+    public void 자판기_종료() {
+        machine.terminateMachine("0");
+    }
+```
+
+### 3.2 make it pass

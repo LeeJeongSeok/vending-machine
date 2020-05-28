@@ -15,19 +15,15 @@ import static org.junit.Assert.assertNull;
 
 public class VendingMachineTest {
 
-    VendingMachine machine;
+    private VendingMachine machine;
 
-    private void setUp() {
+    @Before
+    public void setUp() {
         machine = new VendingMachine();
     }
-    @Test
-    public void canCreateVendingMachine() {
-        setUp();
-    }
 
     @Test
-    public void insertMoney() {
-        setUp();
-        machine.insertMoney(1);
+    public void 자판기_종료() {
+        machine.terminateMachine("0");
     }
 }
