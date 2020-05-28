@@ -7,6 +7,7 @@ import org.junit.contrib.java.lang.system.ClearSystemProperties;
 import org.junit.contrib.java.lang.system.ProvideSystemProperty;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -18,12 +19,12 @@ public class VendingMachineTest {
     private VendingMachine machine;
     private CoffeeMenu menu;
 
+
     @Before
     public void setUp() {
         machine = new VendingMachine();
         menu = new CoffeeMenu();
         menu.welcome();
-
     }
 
     @Test
@@ -55,5 +56,17 @@ public class VendingMachineTest {
         }
 
         assertThat(machine.getMoney()).isEqualTo(change);
+    }
+
+    @Test
+    public void 사용자로_부터_넘어온_키값_매칭() {
+        Map<Integer, Integer> list = new HashMap<>();
+        list.put(1, 3000);
+        list.put(2, 3500);
+        list.put(3, 4000);
+
+        assertThat(3000).isEqualTo(list.get(machine.receiveFromUser(1)));
+        assertThat(3500).isEqualTo(list.get(machine.receiveFromUser(2)));
+        assertThat(4000).isEqualTo(list.get(machine.receiveFromUser(3)));
     }
 }

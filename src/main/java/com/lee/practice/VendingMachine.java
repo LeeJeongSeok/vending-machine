@@ -26,4 +26,8 @@ public class VendingMachine {
 
         return money -= i;
     }
+
+    public int receiveFromUser(int i) {
+        return i;
+    }
 }
