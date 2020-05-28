@@ -45,3 +45,25 @@ terminateMachine(String text) 호출하면 Vending Machine이 종료될 수 있�
 ```
 
 ### 3.2 make it pass
+
+
+
+## 4. insertMoney
+
+insertMoney(int money) 호출하면 Vending Machine에 돈이 입력될 수 있도록 한다.
+
+### 4.1 add failing test
+
+```java
+@Test
+    public void 돈을_투입() {
+        machine.insertMoney(2);
+    }
+```
+
+### 4.2 make it pass
+
+
+
+## 5. getMoney
+
