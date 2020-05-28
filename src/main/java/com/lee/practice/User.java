@@ -2,15 +2,17 @@ package com.lee.practice;
 
 public class User {
 
+    private int money;
 
+    private VendingMachine machine;
 
-
-    public void orderToMachine(int i) {
-        VendingMachine machine = new VendingMachine();
-        machine.receiveFromUser(i);
+    // when user input money
+    public void insertMoney(int money) {
+        machine = new VendingMachine(10000);
     }
 
-    public void insertMoney(int i) {
-
+    // when user input order number
+    public void orderToMachine(int number) {
+        machine.receiveFromUser(number);
     }
 }

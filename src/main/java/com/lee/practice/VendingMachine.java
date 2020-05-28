@@ -1,8 +1,14 @@
 package com.lee.practice;
 
+import javafx.geometry.VerticalDirection;
+
 public class VendingMachine {
 
     private int money;
+
+    public VendingMachine(int money) {
+        this.money = money;
+    }
 
     public void terminateMachine(int code) {
         if (code <= 0) {
@@ -10,24 +16,11 @@ public class VendingMachine {
         }
     }
 
-    public void insertMoney(int money) {
-        this.money = money;
-    }
-
-    public int getMoney() {
-        return money;
-    }
-
-    public int buyDrink(int i) {
-
-        if (money <= 0) {
-            return 0;
-        }
-
-        return money -= i;
-    }
-
     public int receiveFromUser(int i) {
+        return i;
+    }
+
+    public int returnChange(int i) {
         return i;
     }
 }

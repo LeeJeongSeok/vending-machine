@@ -1,6 +1,7 @@
 package com.lee.practice;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.contrib.java.lang.system.ClearSystemProperties;
@@ -22,14 +23,9 @@ public class VendingMachineTest {
 
     @Before
     public void setUp() {
-        machine = new VendingMachine();
+        machine = new VendingMachine(10000);
         menu = new CoffeeMenu();
         menu.welcome();
-    }
-
-    @Test
-    public void printMenu() {
-        menu.printMenu();
     }
 
     @Test
@@ -38,35 +34,31 @@ public class VendingMachineTest {
     }
 
     @Test
-    public void 투입한_금액_확인() {
-        assertThat(machine.getMoney()).isEqualTo(10000);
+    public void 거스름돈_반환() {
+
+        //given
+
+        //when
+
+        //then
+
+
+        assertThat(machine.returnChange(0)).isEqualTo(0);
+        assertThat(machine.returnChange(1)).isEqualTo(1);
+        assertThat(machine.returnChange(300)).isEqualTo(300);
+        assertThat(machine.returnChange(3005)).isEqualTo(3005);
     }
 
-    @Test
-    public void 금액_투입() {
-        machine.insertMoney(1);
-    }
-
-    @Test
-    public void 제품_구메() {
-        int change = machine.buyDrink(3000);
-
-        if (change <= 0) {
-            machine.terminateMachine(change);
-        }
-
-        assertThat(machine.getMoney()).isEqualTo(change);
-    }
-
+    @Ignore
     @Test
     public void 사용자로_부터_넘어온_키값_매칭() {
         Map<Integer, Integer> list = new HashMap<>();
-        list.put(1, 3000);
-        list.put(2, 3500);
-        list.put(3, 4000);
+        list.put(1, 500);
+        list.put(2, 1000);
+        list.put(3, 2000);
 
-        assertThat(3000).isEqualTo(list.get(machine.receiveFromUser(1)));
-        assertThat(3500).isEqualTo(list.get(machine.receiveFromUser(2)));
-        assertThat(4000).isEqualTo(list.get(machine.receiveFromUser(3)));
+        assertThat(500).isEqualTo(list.get(machine.receiveFromUser(1)));
+        assertThat(1000).isEqualTo(list.get(machine.receiveFromUser(2)));
+        assertThat(2000).isEqualTo(list.get(machine.receiveFromUser(3)));
     }
 }
