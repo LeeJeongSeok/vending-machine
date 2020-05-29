@@ -57,18 +57,13 @@ public class VendingMachineTest {
         int userChoice = 3;
 
         //then
-        assertThat(machine.pay(list.get(userChoice))).isEqualTo(machine.currentAmount());
+        assertThat(machine.pay()).isEqualTo(machine.currentAmount());
         System.out.println(list.get(userChoice) + "원이 결제됩니다.  잔돈 : " + machine.currentAmount() + "원");
 
     }
 
     @Test
     public void 잔돈_반환() {
-
-        //given
-        Map<Integer, Integer> list = menuInit();
-
-        //then
         assertThat(0).isEqualTo(machine.returnChange());
         System.out.println("잔돈이 반환되었습니다. 안녕히 가세요  잔돈 : " + machine.currentAmount() + "원");
     }

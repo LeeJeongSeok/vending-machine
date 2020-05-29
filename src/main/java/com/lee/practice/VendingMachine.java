@@ -8,6 +8,7 @@ import java.util.Map;
 public class VendingMachine {
 
     private int money;
+    private int paymentAmount;
 
     public VendingMachine(int money) {
         this.money = money;
@@ -15,20 +16,21 @@ public class VendingMachine {
 
     public int selectDrink(int i) {
         if (i == 1) {
-            return 500;
+            paymentAmount += 500;
         } else if (i == 2) {
-            return 1000;
+            paymentAmount += 1000;
         }  else {
-            return 1500;
+            paymentAmount += 1500;
         }
+        return paymentAmount;
     }
 
     public int currentAmount() {
         return money;
     }
 
-    public int pay(int price) {
-        return this.money -= price;
+    public int pay() {
+        return this.money -= paymentAmount;
     }
 
     public int returnChange() {
