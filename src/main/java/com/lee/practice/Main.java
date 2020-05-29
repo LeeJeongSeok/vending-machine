@@ -1,26 +1,24 @@
 package com.lee.practice;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
 
-        Map<Integer, Integer> list = new HashMap<>();
-        list.put(1, 500);
-        list.put(2, 1000);
-        list.put(3, 1500);
+        Scanner sc = new Scanner(System.in);
 
+        // 환영 메세지
         Comment comment = new Comment();
         comment.welcome();
 
-        Scanner sc = new Scanner(System.in);
-        VendingMachine machine = new VendingMachine(sc.nextInt());
 
+        // 작동
+        VendingMachine machine = new VendingMachine(sc.nextInt());
+        Map<Integer, Integer> list = machine.menuInit();
+
+        // 금액 투입
         comment.insertMoney();
         System.out.println("현재 자판기에 있는 금액 : " + machine.currentAmount() + "원");
-
         comment.printMenu();
 
 
@@ -46,13 +44,35 @@ public class Main {
         sc.nextLine();
 
         System.out.println("잔돈을 반환하시겠습니까? (y/n)");
+        System.out.println("현재 남은 잔돈 : " + machine.currentAmount() + "원");
         char change = sc.next().charAt(0);
 
         if (change == 'y') {
+
             machine.returnChange();
         } else {
             System.out.println("자판기에게 용돈을 주셨습니다.");
             sc.close();
         }
+
+    }
+
+    // welcome
+    public void welcome() {
+
+    }
+
+    //
+
+    public void makeDrink() {
+        Timer timer = new Timer();
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                System.out.println("주문하신 음료가 나왔습니다!");
+            }
+        };
+
+        timer.schedule(task, 3000);
     }
 }
