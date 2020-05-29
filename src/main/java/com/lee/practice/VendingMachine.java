@@ -2,6 +2,9 @@ package com.lee.practice;
 
 import javafx.geometry.VerticalDirection;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class VendingMachine {
 
     private int money;
@@ -10,21 +13,26 @@ public class VendingMachine {
         this.money = money;
     }
 
-    public void terminateMachine(int code) {
-        if (code <= 0) {
-            System.out.println("Vending Machine이 종료되었습니다.");
+    public int selectDrink(int i) {
+        if (i == 1) {
+            return 500;
+        } else if (i == 2) {
+            return 1000;
+        }  else {
+            return 1500;
         }
     }
 
-    public int receiveFromUser(int i) {
-        return i;
+    public int currentAmount() {
+        return money;
     }
 
-    public int returnChange(int i) {
-
-
-
-        return money = 0;
+    public int pay(int price) {
+        return this.money -= price;
     }
 
+    public int returnChange() {
+        this.money = 0;
+        return money;
+    }
 }

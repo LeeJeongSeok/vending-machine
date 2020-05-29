@@ -18,47 +18,58 @@ import static org.junit.Assert.assertNull;
 public class VendingMachineTest {
 
     private VendingMachine machine;
-    private CoffeeMenu menu;
-
 
     @Before
     public void setUp() {
         machine = new VendingMachine(10000);
-        menu = new CoffeeMenu();
-        menu.welcome();
     }
 
-    @Test
-    public void 자판기_종료() {
-        machine.terminateMachine(0);
-    }
-
-    @Test
-    public void 거스름돈_반환() {
-
-        //given
-        int change = 300;
-
-        //when
-        User user = new User();
-        user.addChange(change);
-
-        //then
-        assertThat(user.getMoney()).isEqualTo(300);
-
-    }
-
-
-    @Ignore
-    @Test
-    public void 사용자로_부터_넘어온_키값_매칭() {
+    private Map<Integer, Integer> menuInit() {
         Map<Integer, Integer> list = new HashMap<>();
         list.put(1, 500);
         list.put(2, 1000);
-        list.put(3, 2000);
+        list.put(3, 1500);
+        return list;
+    }
 
-        assertThat(500).isEqualTo(list.get(machine.receiveFromUser(1)));
-        assertThat(1000).isEqualTo(list.get(machine.receiveFromUser(2)));
-        assertThat(2000).isEqualTo(list.get(machine.receiveFromUser(3)));
+    @Test
+    public void 제품_choice() {
+
+        //given
+        Map<Integer, Integer> list = menuInit();
+
+        //when
+        int userChoice = 3;
+
+        //then
+        assertThat(machine.selectDrink(userChoice)).isEqualTo(list.get(userChoice));
+
+        System.out.println("현재 주문하신 음료는 " + userChoice + "번 음료이며, 가격은" + list.get(userChoice) + "원 입니다.");
+    }
+
+    @Test
+    public void 제품_pay() {
+
+        //given
+        Map<Integer, Integer> list = menuInit();
+
+        //when
+        int userChoice = 3;
+
+        //then
+        assertThat(machine.pay(list.get(userChoice))).isEqualTo(machine.currentAmount());
+        System.out.println(list.get(userChoice) + "원이 결제됩니다.  잔돈 : " + machine.currentAmount() + "원");
+
+    }
+
+    @Test
+    public void 잔돈_반환() {
+
+        //given
+        Map<Integer, Integer> list = menuInit();
+
+        //then
+        assertThat(0).isEqualTo(machine.returnChange());
+        System.out.println("잔돈이 반환되었습니다. 안녕히 가세요  잔돈 : " + machine.currentAmount() + "원");
     }
 }
