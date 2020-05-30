@@ -5,7 +5,6 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
 
-        // 초기 환경 셋팅 및 작동(init)
         Comment.welcome();
         Scanner sc = new Scanner(System.in);
         User user = new User();
