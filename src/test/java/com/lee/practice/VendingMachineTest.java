@@ -28,7 +28,7 @@ public class VendingMachineTest {
         Map<Integer, Integer> list = new HashMap<>();
         list.put(1, 500);
         list.put(2, 1000);
-        list.put(3, 1500);
+        list.put(3, 2000);
         return list;
     }
 
