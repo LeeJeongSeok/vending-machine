@@ -38,3 +38,28 @@
 ### 2-3 Comment
 
 - 콘솔창에서 실행하는 프로그램이다 보니 System.out.println()호출 하는 부분이 상당히 많기에 그 부분만 따로 빼서 만들어 놓은 클래스이다.
+
+### 2-4 프로젝트 구조
+
+```
+.
+├── main
+│   ├── java
+│   │   └── com
+│   │       └── lee
+│   │           └── practice
+│   │               ├── Comment.java
+│   │               ├── Main.java
+│   │               ├── User.java
+│   │               └── VendingMachine.java
+│   └── resources
+└── test
+    ├── java
+    │   └── com
+    │       └── lee
+    │           └── practice
+    │               ├── UserTest.java
+    │               └── VendingMachineTest.java
+    └── resources
+```
+
