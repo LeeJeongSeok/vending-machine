@@ -18,13 +18,16 @@ public class Main {
         user.orderBeverageToMachine(sc.nextInt());
 
         Comment.payment();
-        user.payment(sc.next().charAt(0));
 
-        Comment.please_wait();
-        user.makingBeverage();
+        if (!user.payment(sc.next().charAt(0))) {
+            sc.close();
+        } else {
+            Comment.please_wait();
+            user.makingBeverage();
 
-        user.returnChange(sc.next().charAt(0));
+            user.returnChange(sc.next().charAt(0));
 
-        sc.close();
+            sc.close();
+        }
     }
 }

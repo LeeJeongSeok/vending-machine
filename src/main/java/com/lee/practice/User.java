@@ -25,12 +25,14 @@ public class User {
         System.out.println("현재 주문하신 음료는 " + beverage + "번 음료이며, 가격은" + list.get(beverage) + "원 입니다.");
     }
 
-    public void payment(char pay) {
+    public boolean payment(char pay) {
         if (pay != 'y') {
             System.out.println("결제가 취소되었습니다.");
+            return false;
         }
         machine.pay();
         System.out.println("결제가 완료되었습니다.");
+        return true;
     }
 
     public void makingBeverage() {
